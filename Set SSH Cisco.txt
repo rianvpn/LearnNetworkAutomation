@@ -1,0 +1,17 @@
+#Mengaktifkan remote via ssh pada router Cisco
+
+#1.membuat user dengan password
+enable
+conf terminal
+username cisco password cisco
+#2. jadikan user tersebut memiliki privilege admin
+username cisco privilege 15
+#3. Set domain
+ip domain-name mydomain.local
+#4. buat enkripsi rsa 1024 bit
+crypto key generate rsa
+#5.akses line vty, login lalu exit.
+line vty 0 15
+login local
+exit
+#finish
